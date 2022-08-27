@@ -60,7 +60,12 @@ def main():
     st.markdown("<h1 style='text-align: center; color: grey;'>Transmission Line Fault Type Classification App</h1>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center; color: grey;'>Cheng-Chung Li, Shuo-Fu Hong, Wei-Chih Liang</h2>",
                 unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: center; color: grey;'>HV-Lab TPRI</h2>", unsafe_allow_html=True)
+    #st.markdown("<h2 style='text-align: center; color: grey;'>HV-Lab TPRI</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<h2 style='display: block; text-align: center;' href="https://tpri.taipower.com.tw/">HV-Lab TPRI</h2>
+        """,
+        unsafe_allow_html=True,
+    )
 
 
     #st.title('Transmission Line Fault Type Classification App')
@@ -86,7 +91,7 @@ def main():
 
     labels = ['AG', 'BG', 'CG', 'AB', 'BC', 'CA', 'ABG', 'BCG', 'CAG', 'ABC']
     col1, col2 = st.columns(2)
-    col1.write("Precision and Recall of all Fault Type of System a: ")
+    col1.write("Precision and Recall of all Fault Type of Systems a: ")
     prec_a= [0.8878139005477698, 0.8872385981838339, 0.8848241072393188, 0.937770734284205, 0.9328998547652038, 0.9317881467927214,
          0.8527291452111225, 0.8383872042652449, 0.8563327542597909, 0.49375145090149347]
     rec_a = [0.7979603417546496, 0.8389913249463812, 0.8557718584725191, 0.8525256729391614, 0.8934355465315192,
@@ -97,7 +102,7 @@ def main():
     col1.line_chart(df_a)
 
 
-    col2.write("Precision and Recall of all Fault Type of System b: ")
+    col2.write("Precision and Recall of all Fault Types of System b: ")
     prec_b= [0.7819226127736278, 0.7228811008973517, 0.8891372709301258, 0.7885671745352568, 0.9101834488381574,
              0.8336843974206878, 0, 0.5062085452457402, 0.8233321162614949, 0.7430485454712306]
     rec_b = [0.8253505002539565, 0.8516805402225678, 0.854442707707106, 0.8753169025384294, 0.8973217156452962,
@@ -110,7 +115,7 @@ def main():
 
     st.subheader('Select System: ')
     system_list = ['a', 'b']
-    select_system = st.radio("Pick one system to classify", system_list)
+    select_system = st.radio("Pick one system to classify its fault type: ", system_list)
 
     data = load_data(select_system)
     # following lines create boxes in which user can enter data required to make prediction
