@@ -91,7 +91,7 @@ def main():
 
     labels = ['AG', 'BG', 'CG', 'AB', 'BC', 'CA', 'ABG', 'BCG', 'CAG', 'ABC']
     col1, col2 = st.columns(2)
-    col1.write("Precision and Recall of all Fault Type of Systems a: ")
+    col1.write("Precision and Recall of all Fault Types of Systems a: ")
     prec_a= [0.8878139005477698, 0.8872385981838339, 0.8848241072393188, 0.937770734284205, 0.9328998547652038, 0.9317881467927214,
          0.8527291452111225, 0.8383872042652449, 0.8563327542597909, 0.49375145090149347]
     rec_a = [0.7979603417546496, 0.8389913249463812, 0.8557718584725191, 0.8525256729391614, 0.8934355465315192,
