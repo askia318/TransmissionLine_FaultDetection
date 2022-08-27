@@ -67,8 +67,8 @@ def main():
     col2.image('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Taiwan_Power_Company_Seal.svg/220px-Taiwan_Power_Company_Seal.svg.png',
              caption='Taipower', width = 466, use_column_width= 'auto')
 
-    image = Image.open('system.png')
-    st.image(image, caption='select one system')
+    #image = Image.open('system.png')
+    st.image("https://github.com/askia318/TransmissionLine_FaultDetection/blob/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
 
     st.subheader('Select System: ')
     system_list = ['a', 'b']
