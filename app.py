@@ -28,11 +28,11 @@ def classify_fault(model, df, encoder):
 @st.cache
 def load_data(select_system):
     if select_system == 'a':
-        st.write('The expected accuracy is 83.4%')
-        data = pd.read_csv("minmax_a.csv")
+        #st.write('The expected accuracy is 83.4%')
+        data = pd.read_csv("min_max_a.csv")
     if select_system == 'b':
-        st.write('The expected accuracy is 75.64%')
-        data = pd.read_csv("minmax_b.csv")
+        #st.write('The expected accuracy is 75.64%')
+        data = pd.read_csv("min_max_b.csv")
     return data
 
 # load the model and scaler
