@@ -160,8 +160,8 @@ def main():
             fault_type = 'ABC'
 
         st.subheader('The Prediction: ')
-        st.write('The selected system is '+str(select_system) + '.')
-        st.write('Based on the input feature values, the predict fault type is '+ str(fault_type)+'.'
+        st.write('The selected system is '+str(select_system) + ':')
+        st.write('Based on the input feature values, the predict fault type is '+ str(fault_type)+'.')
         st.balloons()
 
 if __name__ == '__main__':
