@@ -78,6 +78,31 @@ def main():
     #image = Image.open('system.png')
     st.image("https://raw.githubusercontent.com/askia318/TransmissionLine_FaultDetection/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
 
+
+    labels = ['AG', 'BG', 'CG', 'AB', 'BC', 'CA', 'ABG', 'BCG', 'CAG', 'ABC']
+    col1, col2 = st.columns(2)
+    col1.write("The Precision and Recall of all Fault Type of System a: ")
+    prec_a= [0.8878139005477698, 0.8872385981838339, 0.8848241072393188, 0.937770734284205, 0.9328998547652038, 0.9317881467927214,
+         0.8527291452111225, 0.8383872042652449, 0.8563327542597909, 0.49375145090149347]
+    rec_a = [0.7979603417546496, 0.8389913249463812, 0.8557718584725191, 0.8525256729391614, 0.8934355465315192,
+         0.8069953577717305, 0.7800033529989382, 0.8262791964371535, 0.7644884446015878, 0.8232561890170148]
+    df_a = pd.DataFrame(list(zip(prec_a, rec_a)),
+                      columns=['Precision', 'Recall'])
+    df_a.index = labels
+    col1.line_chart(df_a)
+
+
+    col2.write("The Precision and Recall of all Fault Type of System b: ")
+    prec_b= [0.7819226127736278, 0.7228811008973517, 0.8891372709301258, 0.7885671745352568, 0.9101834488381574,
+             0.8336843974206878, nan, 0.5062085452457402, 0.8233321162614949, 0.7430485454712306]
+    rec_b = [0.8253505002539565, 0.8516805402225678, 0.854442707707106, 0.8753169025384294, 0.8973217156452962,
+             0.8292473429020968, 0.0, 0.8720636330601204, 0.7815310958506625, 0.7748078211221333]
+    df_b = pd.DataFrame(list(zip(prec_b, rec_b)),
+                      columns=['Precision', 'Recall'])
+    df_b.index = labels
+    col2.line_chart(df_b)
+    
+
     st.subheader('Select System: ')
     system_list = ['a', 'b']
     select_system = st.radio("Pick one system to classify", system_list)
@@ -145,28 +170,26 @@ def main():
         fault_type = ''
         prediction = classify_fault(model, feature_df_scaled, encoder)
 
-        if str(prediction) == 'AG':
+        if str(prediction) == '[AG]':
             fault_type = 'AG'
-        elif str(prediction) == 'BG':
+        elif str(prediction) == '[BG]':
             fault_type = 'BG'
-        elif str(prediction) == 'CG':
+        elif str(prediction) == '[CG]':
             fault_type = 'CG'
-        elif str(prediction) == 'AB':
+        elif str(prediction) == '[AB]':
             fault_type = 'AB'
-        elif str(prediction) == 'AC':
+        elif str(prediction) == '[AC]':
             fault_type = 'AC'
-        elif str(prediction) == 'BC':
+        elif str(prediction) == '[BC]':
             fault_type = 'BC'
-        elif str(prediction) == 'ABG':
+        elif str(prediction) == '[ABG]':
             fault_type = 'ABG'
-        elif str(prediction) == 'ACG':
+        elif str(prediction) == '[ACG]':
             fault_type = 'ACG'
-        elif str(prediction) == 'BCG':
+        elif str(prediction) == '[BCG]':
             fault_type = 'BCG'
-        elif str(prediction) == 'ABC':
+        elif str(prediction) == '[ABC]':
             fault_type = 'ABC'
-        else:
-            fault_type = str(prediction)
 
         st.subheader('The Prediction: ')
         st.write('The selected system is '+str(select_system) + ':')
