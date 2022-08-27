@@ -165,6 +165,8 @@ def main():
             fault_type = 'BCG'
         elif str(prediction) == 'ABC':
             fault_type = 'ABC'
+        else:
+            fault_type = str(prediction)
 
         st.subheader('The Prediction: ')
         st.write('The selected system is '+str(select_system) + ':')
