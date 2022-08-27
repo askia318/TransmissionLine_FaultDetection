@@ -56,8 +56,16 @@ def main():
     #image = Image.open('taipower.png')
 
     # display the front end aspect
-    st.title('Transmission Line Fault Type Classification App')
-    st.header('By TPRI HV Lab Dr. Cheng-Chung Li, Shuo-Fu Hong, Wei-Chih Liang')
+
+    st.markdown("<h1 style='text-align: center; color: grey;'>Transmission Line Fault Type Classification App</h1>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: grey;'>Cheng-Chung Li, Shuo-Fu Hong, Wei-Chih Liang</h2>",
+                unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: grey;'>HV-Lab TPRI</h2>", unsafe_allow_html=True)
+
+
+    #st.title('Transmission Line Fault Type Classification App')
+    #st.header('Cheng-Chung Li, Shuo-Fu Hong, Wei-Chih Liang')
+    #st.subheader('HV-Lab TPRI')
 
     col1, col2 = st.columns(2)
     col1.write('The DL models are built by the simulation data generated from RTDS,\
