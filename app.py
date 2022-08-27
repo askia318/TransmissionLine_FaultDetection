@@ -17,7 +17,7 @@ import numpy as np
 from PIL import Image
 from pickle import load
 
-@st.cache
+@st.cache((allow_output_mutation=True))
 def classify_fault(model, df, encoder):
     temp = model.predict(df)
     pred_y = np.argmax(temp, axis=1)
@@ -25,7 +25,7 @@ def classify_fault(model, df, encoder):
     pred_class_y = encoder.inverse_transform(pred_y)
     return pred_class_y
 
-@st.cache
+@st.cache((allow_output_mutation=True))
 def load_data(select_system):
     if select_system == 'a':
         #st.write('The expected accuracy is 83.4%')
@@ -36,7 +36,7 @@ def load_data(select_system):
     return data
 
 # load the model and scaler
-@st.cache
+@st.cache((allow_output_mutation=True))
 def load_selected_model(select_system):
     if select_system == 'a':
         model = load(open('model_a.pkl', 'rb'))
