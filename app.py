@@ -76,8 +76,13 @@ def main():
              caption='Taipower', width = 466, use_column_width= 'auto')
 
     #image = Image.open('system.png')
-    st.image("https://raw.githubusercontent.com/askia318/TransmissionLine_FaultDetection/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
-
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.write(' ')
+    with col2:
+        st.image("https://raw.githubusercontent.com/askia318/TransmissionLine_FaultDetection/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
+    with col3:
+        st.write(' ')
 
     labels = ['AG', 'BG', 'CG', 'AB', 'BC', 'CA', 'ABG', 'BCG', 'CAG', 'ABC']
     col1, col2 = st.columns(2)
@@ -167,33 +172,11 @@ def main():
 
     # when 'Predict' is clicked, make the prediction and store it
     if st.button("Predict"):
-        fault_type = ''
+        #fault_type = ''
         prediction = classify_fault(model, feature_df_scaled, encoder)
-
-        if str(prediction) == '[AG]':
-            fault_type = 'AG'
-        elif str(prediction) == '[BG]':
-            fault_type = 'BG'
-        elif str(prediction) == '[CG]':
-            fault_type = 'CG'
-        elif str(prediction) == '[AB]':
-            fault_type = 'AB'
-        elif str(prediction) == '[AC]':
-            fault_type = 'AC'
-        elif str(prediction) == '[BC]':
-            fault_type = 'BC'
-        elif str(prediction) == '[ABG]':
-            fault_type = 'ABG'
-        elif str(prediction) == '[ACG]':
-            fault_type = 'ACG'
-        elif str(prediction) == '[BCG]':
-            fault_type = 'BCG'
-        elif str(prediction) == '[ABC]':
-            fault_type = 'ABC'
-
         st.subheader('The Prediction: ')
         st.write('The selected system is '+str(select_system) + ':')
-        st.write('Based on the input feature values, the predict fault type is '+ str(fault_type)+'.')
+        st.write('Based on the input feature values, the predict fault type is '+ str(prediction)+'.')
         st.balloons()
 
 if __name__ == '__main__':
