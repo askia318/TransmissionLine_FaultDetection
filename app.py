@@ -76,7 +76,7 @@ def main():
              caption='Taipower', width = 466, use_column_width= 'auto')
 
     #image = Image.open('system.png')
-    st.image("https://github.com/askia318/TransmissionLine_FaultDetection/blob/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
+    st.image("https://raw.githubusercontent.com/askia318/TransmissionLine_FaultDetection/main/syetem.png", caption='system', width = 485, use_column_width= 'auto')
 
     st.subheader('Select System: ')
     system_list = ['a', 'b']
@@ -144,7 +144,7 @@ def main():
     # when 'Predict' is clicked, make the prediction and store it
     if st.button("Predict"):
         fault_type = ''
-        prediction = classify_fault(model, features_df_scaled, encoder)
+        prediction = classify_fault(model, feature_df_scaled, encoder)
 
         if str(prediction) == 'AG':
             fault_type = 'AG'
